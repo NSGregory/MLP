@@ -1,0 +1,49 @@
+#the purpose of this file is to make powerpoint presentations out of lab data
+#sheets without requiring any transposition
+
+import os
+import re
+from pptx import Presentation as pres
+from pptx.util import Inches
+import csv
+import datetime
+
+class powerPoint:
+    def __init__(self):
+        self.title = "Blank place holder"
+        self.prs = pres()
+        self.picture = self.prs.slide_layouts[8]
+        self.title = self.prs.slide_layouts[0]
+        
+        
+    def make_title(self):
+        slide = self.prs.slides.add_slide(self.title)
+        title = slide.shapes.title
+        subtitle = slide.placeholders[1]
+        title.text = "Lab Meeting " + datetime.datetime.today().strftime('%Y-%m-%d')
+        subtitle.text = "Nick Gregory"
+
+    def get_images(self):
+        cwd = os.getcwd()
+        files = os.listdir(cwd)
+        txtRe = re.compile('(?P<file>\w+).png', re.I)
+        for file in files:
+            match = txtRe.match(file)
+            print file + ": "
+            print match
+            if match:
+                slide = prs.slides.add_slide(picture_layout)
+                title.text = file.split('.')[0]
+                subtitle = slide.placeholders[2]
+                subtitle.text = ""
+                placeholder  = slide.placeholder[1]
+                picture = placeholder.insert_picture(file)
+
+
+
+pp=powerPoint()
+pp.make_title()
+pp.get_images()
+pp.prs.save("test.pptx")
+
+
