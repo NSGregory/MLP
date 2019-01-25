@@ -1,6 +1,7 @@
 
+
 #import pyvttbl as pt
-#import statsmodels 
+#import statsmodels
 
 import importlib
 import os
@@ -11,7 +12,7 @@ from lib import sc_assess as sca
 from lib import parse_experiment_type as parse
 from lib import lab_ppt as ppt
 
-# Still actively changing many of these modules and this is the only way I know 
+# Still actively changing many of these modules and this is the only way I know
 # to make them reflect changes as they happen
 importlib.reload(frb)
 importlib.reload(sca)
@@ -26,14 +27,11 @@ d = datetime.datetime.today().strftime('%Y-%m-%d')
 experiments = parse.EXparse()
 experiments.processFile()
 
-# This puts graphs into the presentation and moves them to a folder with the 
+# This puts graphs into the presentation and moves them to a folder with the
 # day's date
 presentation = ppt.powerPoint()
 presentation.make_title()
-presentation.get_images() # Moves the "gotten" images to the folder as it loads 
+presentation.get_images() # Moves the "gotten" images to the folder as it loads
                           # them into the pptx.
 presentation.prs.save("Lab_meeting.pptx")
 shutil.move("Lab_meeting.pptx", cwd+"\\"+d+"\\")
-
-
-

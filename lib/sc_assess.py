@@ -101,7 +101,7 @@ class SC:
                            capsize=0.1)
         handles, labels = ax.get_legend_handles_labels()
         ax.legend(handles[:6], labels[:6])
-        plt.show()
+        plt.show(block=False)
         if save:
             plt.savefig(self.filename.split(".")[0]
                         +"_Sucrose_Consumption-pointplot_"
@@ -135,7 +135,7 @@ class SC:
                          order=output_columns)
         handles, labels = ax.get_legend_handles_labels()
         ax.legend(handles[:3], labels[:3])
-        plt.show()
+        plt.show(block=False)
         if save:
             plt.savefig(self.filename.split(".")[0]
                         +"_Sucrose_Consumption-boxplot_"

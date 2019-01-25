@@ -150,7 +150,7 @@ class PR:
             ax[plot_counter].legend(loc='upper left', frameon=False)
             plot_counter +=1
         fig.set_size_inches(12, 5)
-        plt.show()
+        plt.show(block=False)
 
 
 
@@ -190,7 +190,7 @@ class PR:
                                order=output_columns)
             handles, labels = ax.get_legend_handles_labels()
             ax.legend(handles[:6], labels[:6])
-            plt.show()
+            plt.show(block=False)
 
 
         else:
@@ -220,7 +220,7 @@ class PR:
                                 ax=axes[1],capsize=0.1)
             handles, labels = ax2.get_legend_handles_labels()
             ax2.legend(handles[:6], labels[:6])
-            plt.show()
+            plt.show(block=False)
         if save:
             plt.savefig(self.filename.split(".")[0]
                         +"_Self_Administration-pointplot_"
@@ -257,7 +257,7 @@ class PR:
 
             handles, labels = ax.get_legend_handles_labels()
             ax.legend(handles[:6], labels[:6])
-            plt.show()
+            plt.show(block=False)
 
         #This else block is for plotting male and female data separately.
         else:
@@ -307,7 +307,7 @@ class PR:
             ax2.legend(handles2[:3], labels2[:3])
             handles1, labels1 = ax1.get_legend_handles_labels()
             ax1.legend(handles1[:3], labels1[:3])
-            plt.show()
+            plt.show(block=False)
         if save:
             plt.savefig(self.filename.split(".")[0]
                         +"_Self_Administration-boxplot_"
